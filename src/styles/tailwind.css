@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors - Medical Authority Blue */
+    --color-primary: #1B365D; /* navy-900 - Medical authority + trust anchor */
+    --color-primary-foreground: #FFFFFF; /* white - High contrast for accessibility */
+    
+    /* Secondary Colors - Professional Supporting */
+    --color-secondary: #4A90B8; /* blue-500 - Professional supporting elements */
+    --color-secondary-foreground: #FFFFFF; /* white - Ensures readability */
+    
+    /* Accent Colors - CTA Conversion */
+    --color-accent: #0066CC; /* blue-600 - High-contrast CTA conversion moments */
+    --color-accent-foreground: #FFFFFF; /* white - Maximum CTA visibility */
+    
+    /* Background Colors - Clean Medical Canvas */
+    --color-background: #FAFBFC; /* gray-50 - Clean medical canvas */
+    --color-foreground: #1A1A1A; /* gray-900 - Maximum readability for all ages */
+    
+    /* Surface Colors - Section Separation */
+    --color-card: #FFFFFF; /* white - Section separation with subtle shadows */
+    --color-card-foreground: #1A1A1A; /* gray-900 - Primary text on cards */
+    
+    /* Popover Colors */
+    --color-popover: #FFFFFF; /* white - Dropdown/modal backgrounds */
+    --color-popover-foreground: #1A1A1A; /* gray-900 - Popover text */
+    
+    /* Muted Colors - Supporting Information */
+    --color-muted: #F1F5F9; /* gray-100 - Subtle backgrounds */
+    --color-muted-foreground: #4A5568; /* gray-600 - Supporting information without distraction */
+    
+    /* Border and Input Colors */
+    --color-border: #E2E8F0; /* gray-200 - Minimal borders for form fields */
+    --color-input: #E2E8F0; /* gray-200 - Form field borders */
+    --color-ring: #0066CC; /* blue-600 - Focus ring color */
+    
+    /* Semantic Colors - Health Outcomes */
+    --color-success: #10B981; /* green-500 - Positive health outcomes reinforcement */
+    --color-success-foreground: #FFFFFF; /* white - Success message text */
+    
+    --color-warning: #F59E0B; /* amber-500 - Appointment urgency indicators */
+    --color-warning-foreground: #1A1A1A; /* gray-900 - Warning text */
+    
+    --color-error: #EF4444; /* red-500 - Form validation only */
+    --color-error-foreground: #FFFFFF; /* white - Error message text */
+    
+    --color-destructive: #EF4444; /* red-500 - Destructive actions */
+    --color-destructive-foreground: #FFFFFF; /* white - Destructive text */
+    
+    /* Typography */
+    --font-headline: 'Crimson Text', serif;
+    --font-body: 'Source Sans Pro', sans-serif;
+    --font-cta: 'Nunito Sans', sans-serif;
+    --font-accent: 'Playfair Display', serif;
+    
+    /* Spacing and Layout */
+    --radius: 0.5rem;
+    --header-height: 90px;
+    --max-content-width: 1200px;
+  }
+
+  .dark {
+    --color-background: #0A0A0A; /* gray-950 - Dark mode background */
+    --color-foreground: #F1F5F9; /* gray-100 - Dark mode text */
+    --color-card: #1A1A1A; /* gray-900 - Dark mode cards */
+    --color-card-foreground: #F1F5F9; /* gray-100 - Dark mode card text */
+    --color-popover: #1A1A1A; /* gray-900 - Dark mode popovers */
+    --color-popover-foreground: #F1F5F9; /* gray-100 - Dark mode popover text */
+    --color-muted: #262626; /* gray-800 - Dark mode muted backgrounds */
+    --color-muted-foreground: #94A3B8; /* gray-400 - Dark mode muted text */
+    --color-border: #374151; /* gray-700 - Dark mode borders */
+    --color-input: #374151; /* gray-700 - Dark mode inputs */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headline);
+  }
+}
+
+@layer components {
+  /* Navigation Styles */
+  .nav-bar {
+    @apply fixed top-0 left-0 right-0 bg-card shadow-md z-[1000] transition-transform duration-300;
+    height: var(--header-height);
+  }
+
+  .nav-bar.scrolled {
+    @apply shadow-lg;
+  }
+
+  .nav-container {
+    @apply mx-auto px-5 h-full flex items-center justify-between;
+    max-width: var(--max-content-width);
+  }
+
+  .nav-logo {
+    @apply flex items-center gap-3 no-underline;
+  }
+
+  .nav-logo-icon {
+    @apply w-10 h-10 rounded-lg flex items-center justify-center;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  }
+
+  .nav-logo-text-wrapper {
+    @apply flex flex-col items-center justify-center;
+  }
+
+  .nav-logo-text {
+    @apply font-bold text-foreground text-center;
+    font-family: var(--font-headline);
+    font-size: 0.875rem;
+    line-height: 1.2;
+  }
+
+  .nav-links {
+    @apply hidden lg:flex items-center gap-8;
+  }
+
+  .nav-link {
+    @apply text-sm font-bold text-muted-foreground hover:text-primary transition-colors duration-250 cursor-pointer relative whitespace-nowrap;
+    font-family: var(--font-body);
+  }
+
+  .nav-link.active {
+    @apply text-primary;
+  }
+
+  .nav-link.active::after {
+    @apply absolute bottom-[-8px] left-0 right-0 h-0.5 bg-primary;
+    content: '';
+  }
+
+  .nav-cta {
+    @apply hidden lg:block;
+  }
+
+  .mobile-menu-toggle {
+    @apply lg:hidden fixed top-4 right-4 z-[1100] p-2 rounded-lg bg-card shadow-md;
+  }
+
+  .mobile-menu-drawer {
+    @apply fixed inset-0 z-[1100] lg:hidden;
+  }
+
+  .mobile-menu-backdrop {
+    @apply absolute inset-0 bg-background;
+  }
+
+  .mobile-menu-content {
+    @apply absolute top-0 right-0 h-full w-80 bg-card shadow-xl transform transition-transform duration-300;
+  }
+
+  .mobile-menu-content.closed {
+    @apply translate-x-full;
+  }
+
+  .mobile-menu-header {
+    @apply flex items-center justify-between p-5 border-b border-border;
+  }
+
+  .mobile-menu-links {
+    @apply flex flex-col p-5 gap-4;
+  }
+
+  .mobile-menu-link {
+    @apply text-base font-medium text-muted-foreground hover:text-primary transition-colors duration-250 cursor-pointer py-3 px-4 rounded-lg;
+    font-family: var(--font-body);
+  }
+
+  .mobile-menu-link.active {
+    @apply text-primary bg-muted;
+  }
+
+  .floating-cta {
+    @apply fixed bottom-6 right-6 z-[999] lg:hidden shadow-lg;
+  }
+
+  .progress-indicator {
+    @apply fixed top-[60px] left-0 right-0 h-1 bg-muted z-[999];
+  }
+
+  .progress-bar {
+    @apply h-full bg-accent transition-all duration-300;
+  }
+
+  /* CTA Button Styles */
+  .cta-button {
+    @apply px-6 py-3 rounded-lg font-bold text-sm transition-all duration-250;
+    font-family: var(--font-cta);
+    box-shadow: 0 4px 12px rgba(27, 54, 93, 0.15);
+  }
+
+  .cta-button:hover {
+    @apply transform -translate-y-0.5;
+    box-shadow: 0 6px 16px rgba(27, 54, 93, 0.2);
+  }
+
+  .cta-button-primary {
+    @apply bg-accent text-accent-foreground;
+  }
+
+  .cta-button-secondary {
+    @apply bg-secondary text-secondary-foreground;
+  }
+
+  /* Section Styles */
+  .section-container {
+    @apply mx-auto px-5 py-16;
+    max-width: var(--max-content-width);
+  }
+
+  .section-title {
+    @apply text-4xl font-bold text-foreground mb-4;
+    font-family: var(--font-headline);
+  }
+
+  .section-subtitle {
+    @apply text-lg text-muted-foreground mb-8;
+    font-family: var(--font-body);
+  }
+
+  /* Card Styles */
+  .card {
+    @apply bg-card rounded-lg p-6 border border-border;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .card:hover {
+    @apply transform -translate-y-1 transition-transform duration-250;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Testimonial Styles */
+  .testimonial-card {
+    @apply card;
+  }
+
+  .testimonial-text {
+    @apply text-base text-foreground mb-4 italic;
+    font-family: var(--font-accent);
+  }
+
+  .testimonial-author {
+    @apply text-sm font-semibold text-primary;
+    font-family: var(--font-body);
+  }
+
+  /* Form Styles */
+  .form-container {
+    @apply bg-card rounded-lg p-8 border border-border;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .form-title {
+    @apply text-2xl font-bold text-foreground mb-6;
+    font-family: var(--font-headline);
+  }
+
+  /* Utility Classes */
+  .text-headline {
+    font-family: var(--font-headline);
+  }
+
+  .text-body {
+    font-family: var(--font-body);
+  }
+
+  .text-cta {
+    font-family: var(--font-cta);
+  }
+
+  .text-accent {
+    font-family: var(--font-accent);
+  }
+}
+
+@layer utilities {
+  .animation-fade-in {
+    animation: fadeIn 300ms ease-in-out;
+  }
+
+  .animation-slide-in {
+    animation: slideIn 300ms ease-in-out;
+  }
+
+  .animation-stagger {
+    animation: stagger 300ms ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes stagger {
+    from {
+      transform: translateY(10px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
