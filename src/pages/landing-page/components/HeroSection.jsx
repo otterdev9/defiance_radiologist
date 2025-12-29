@@ -12,7 +12,7 @@ const HeroSection = ({ onScheduleClick, onServicesClick }) => {
               Ohio's Leading Radiology Expert
             </h1>
             <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-primary">
-              Professor Hassan Semaan
+              DR Hassan Semaan
             </p>
           </div>
 
@@ -21,12 +21,12 @@ const HeroSection = ({ onScheduleClick, onServicesClick }) => {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/assets/images/images-1766884053858.jpg"
-                  alt="Professional headshot of Professor Hassan Semaan wearing white medical lab coat"
+                  alt="Professional headshot of DR Hassan Semaan wearing white medical lab coat"
                   className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover object-top bg-white" />
               </div>
               
               <div className="mt-4 text-center">
-                <h3 className="text-xl md:text-2xl font-bold text-gray-900">Professor Hassan Semaan</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900">DR Hassan Semaan</h3>
               </div>
             </div>
 

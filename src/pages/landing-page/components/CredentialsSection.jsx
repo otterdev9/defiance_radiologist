@@ -9,7 +9,7 @@ const CredentialsSection = () => {
       id: 1,
       year: "1995",
       title: "Medical Degree",
-      institution: "American University of Beirut",
+      institution: "TISHREEN UNIVERSITY SYRIA",
       description: "Graduated with honors from one of the Middle East's most prestigious medical schools, specializing in diagnostic radiology and medical imaging.",
       icon: "GraduationCap"
     },
@@ -17,7 +17,7 @@ const CredentialsSection = () => {
       id: 2,
       year: "1999",
       title: "Radiology Residency",
-      institution: "Cleveland Clinic Foundation",
+      institution: "MEDICAL COLLEGE OF OHIO",
       description: "Completed comprehensive residency training in diagnostic radiology at one of America's top-ranked hospitals, gaining expertise in advanced imaging techniques.",
       icon: "Hospital"
     },
@@ -31,16 +31,24 @@ const CredentialsSection = () => {
     },
     {
       id: 4,
-      year: "2003",
+      year: "1979-2002",
       title: "Fellowship Training",
-      institution: "University of Michigan",
-      description: "Advanced fellowship training in interventional radiology and cross-sectional imaging, specializing in minimally invasive procedures.",
+      institution: "University of MONTREAL",
+      description: "NEUROINTERVENTIONAL RADIOLOGY FELLOW SHIP",
       icon: "Stethoscope"
     },
     {
       id: 5,
-      year: "2005-Present",
-      title: "Professor of Radiology",
+      year: "2003-2005",
+      title: "ASSISTANT DR of Radiology",
+      institution: "UNIBVERSITY O FTOLEDO",
+      description: "",
+      icon: "Stethoscope"
+    },
+    {
+      id: 6,
+      year: "2005-2020",
+      title: "ATTENDING RADIOLOGIST",
       institution: "Defiance Radiologist Associates",
       description: "Leading radiology practice in Ohio, providing comprehensive diagnostic imaging services and mentoring next generation of radiologists.",
       icon: "UserCheck"

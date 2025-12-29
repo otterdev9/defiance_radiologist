@@ -12,7 +12,7 @@ const AppointmentConfirmationPage = () => {
   // Mock appointment data - in real app, this would come from booking state/API
   const appointmentData = {
     confirmationNumber: 'DRA-2025-' + Math.floor(Math.random() * 10000)?.toString()?.padStart(4, '0'),
-    radiologist: 'Professor Hassan Semaan',
+    radiologist: 'DR Hassan Semaan',
     serviceType: 'MRI Imaging',
     date: '2025-01-15',
     time: '10:00 AM',

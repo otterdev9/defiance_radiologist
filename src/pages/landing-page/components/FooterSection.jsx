@@ -5,7 +5,7 @@ const FooterSection = () => {
   const currentYear = new Date()?.getFullYear();
 
   const quickLinks = [
-    { label: 'About Professor Semaan', href: '#about' },
+    { label: 'About DR Semaan', href: '#about' },
     { label: 'Our Services', href: '#services' },
     { label: 'Patient Stories', href: '#testimonials' },
     { label: 'Contact Us', href: '#contact' }
@@ -45,7 +45,7 @@ const FooterSection = () => {
               <span className="text-xl font-bold">Defiance Radiologist</span>
             </div>
             <p className="text-sm text-white/80 mb-6">
-              Leading radiology expertise in Ohio with Professor Hassan Semaan's distinguished medical background, providing accurate diagnostic imaging services.
+              Leading radiology expertise in Ohio with DR Hassan Semaan's distinguished medical background, providing accurate diagnostic imaging services.
             </p>
             <div className="space-y-3">
               {certifications?.map((cert, index) => (

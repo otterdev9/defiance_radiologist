@@ -10,7 +10,7 @@ const StickyNavigationBar = () => {
 
   const sections = [
     { id: 'home', label: 'Home', offset: 0 },
-    { id: 'about', label: 'About Professor Semaan', offset: 60 },
+    { id: 'about', label: 'About DR Semaan', offset: 60 },
     { id: 'services', label: 'Our Services', offset: 60 },
     { id: 'testimonials', label: 'Patient Stories', offset: 60 },
     { id: 'contact', label: 'Contact & Appointment', offset: 60 },

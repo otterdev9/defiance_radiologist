@@ -17,7 +17,7 @@ const TestimonialsSection = () => {
     rating: 5,
     date: "December 2024",
     service: "MRI Imaging",
-    quote: "Professor Semaan's expertise gave me peace of mind during a very stressful time. His thorough explanation of my MRI results and compassionate approach made all the difference.",
+    quote: "DR Semaan's expertise gave me peace of mind during a very stressful time. His thorough explanation of my MRI results and compassionate approach made all the difference.",
     outcome: "Early detection led to successful treatment"
   },
   {
@@ -30,7 +30,7 @@ const TestimonialsSection = () => {
     rating: 5,
     date: "November 2024",
     service: "CT Scan",
-    quote: "After visiting three other facilities, Professor Semaan was the first to accurately diagnose my condition. His attention to detail and years of experience are truly remarkable.",
+    quote: "After visiting three other facilities, DR Semaan was the first to accurately diagnose my condition. His attention to detail and years of experience are truly remarkable.",
     outcome: "Accurate diagnosis after months of uncertainty"
   },
   {
@@ -43,7 +43,7 @@ const TestimonialsSection = () => {
     rating: 5,
     date: "October 2024",
     service: "Mammography",
-    quote: "The 3D mammography technology and Professor Semaan's careful review detected my breast cancer at stage 1. I'm forever grateful for the life-saving care I received.",
+    quote: "The 3D mammography technology and DR Semaan's careful review detected my breast cancer at stage 1. I'm forever grateful for the life-saving care I received.",
     outcome: "Life-saving early cancer detection"
   },
   {
@@ -56,7 +56,7 @@ const TestimonialsSection = () => {
     rating: 5,
     date: "September 2024",
     service: "Interventional Radiology",
-    quote: "The minimally invasive procedure performed by Professor Semaan eliminated my chronic pain without major surgery. Recovery was quick and the results exceeded my expectations.",
+    quote: "The minimally invasive procedure performed by DR Semaan eliminated my chronic pain without major surgery. Recovery was quick and the results exceeded my expectations.",
     outcome: "Pain-free after years of suffering"
   }];
 
@@ -89,7 +89,7 @@ const TestimonialsSection = () => {
         <div className="text-center mb-12 md:mb-16">
           <h2 className="section-title">Patient Success Stories</h2>
           <p className="section-subtitle max-w-3xl mx-auto">
-            Real experiences from patients who trusted Professor Semaan with their diagnostic imaging needs
+            Real experiences from patients who trusted DR Semaan with their diagnostic imaging needs
           </p>
         </div>
 
