@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Icon from '../AppIcon';
 import Button from './Button';
 
 const StickyNavigationBar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -14,10 +17,27 @@ const StickyNavigationBar = () => {
     { id: 'services', label: 'Our Services', offset: 60 },
     { id: 'testimonials', label: 'Patient Stories', offset: 60 },
     { id: 'contact', label: 'Contact & Appointment', offset: 60 },
+    { id: 'articles', label: 'Educational Articles', offset: 0, isRoute: true },
   ];
+
+  // Track active section based on route
+  useEffect(() => {
+    if (location.pathname.startsWith('/article')) {
+      setActiveSection('articles');
+    } else if (location.pathname === '/' || location.pathname === '/landing-page') {
+      // Will be set by scroll handler
+    } else {
+      setActiveSection('');
+    }
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
+      // Don't update active section on scroll if we're on articles page
+      if (location.pathname.startsWith('/article')) {
+        return;
+      }
+
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement?.scrollHeight;
@@ -48,7 +68,7 @@ const StickyNavigationBar = () => {
     handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -74,6 +94,23 @@ const StickyNavigationBar = () => {
       });
 
       setIsMobileMenuOpen(false);
+    }
+  };
+
+  const handleNavClick = (section) => {
+    if (section.isRoute) {
+      if (section.id === 'articles') {
+        navigate('/article');
+      }
+      setIsMobileMenuOpen(false);
+    } else {
+      // If we're not on the home page, navigate home first
+      if (location.pathname !== '/' && location.pathname !== '/landing-page') {
+        navigate('/');
+        setTimeout(() => scrollToSection(section.id, section.offset), 100);
+      } else {
+        scrollToSection(section.id, section.offset);
+      }
     }
   };
 
@@ -107,7 +144,7 @@ const StickyNavigationBar = () => {
               <button
                 key={section?.id}
                 className={`nav-link ${activeSection === section?.id ? 'active' : ''}`}
-                onClick={() => scrollToSection(section?.id, section?.offset)}
+                onClick={() => handleNavClick(section)}
               >
                 {section?.label}
               </button>
@@ -147,7 +184,7 @@ const StickyNavigationBar = () => {
                 <button
                   key={section?.id}
                   className={`mobile-menu-link ${activeSection === section?.id ? 'active' : ''}`}
-                  onClick={() => scrollToSection(section?.id, section?.offset)}
+                  onClick={() => handleNavClick(section)}
                 >
                   {section?.label}
                 </button>

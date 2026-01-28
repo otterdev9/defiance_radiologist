@@ -5,6 +5,8 @@ import ErrorBoundary from "components/ErrorBoundary";
 import NotFound from "pages/NotFound";
 import LandingPage from './pages/landing-page';
 import AppointmentConfirmationPage from './pages/appointment-confirmation-page';
+import ArticleListPage from './pages/article-list-page';
+import ArticleDetailPage from './pages/article-detail-page';
 
 const Routes = () => {
   return (
@@ -16,6 +18,8 @@ const Routes = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/landing-page" element={<LandingPage />} />
         <Route path="/appointment-confirmation-page" element={<AppointmentConfirmationPage />} />
+        <Route path="/article" element={<ArticleListPage />} />
+        <Route path="/article/:id" element={<ArticleDetailPage />} />
         <Route path="*" element={<NotFound />} />
       </RouterRoutes>
       </ErrorBoundary>
